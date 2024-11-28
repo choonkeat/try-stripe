@@ -20,6 +20,7 @@ post '/create-checkout-session' do
       quantity: 1,
     }],
     mode: 'payment',
+    # https://docs.stripe.com/payments/checkout/custom-success-page?payment-ui=stripe-hosted#modify-the-success-url
     success_url: YOUR_DOMAIN + '/success?session_id={CHECKOUT_SESSION_ID}',
     cancel_url: YOUR_DOMAIN + '/cancel',
     automatic_tax: {enabled: true},
