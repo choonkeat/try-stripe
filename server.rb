@@ -24,6 +24,7 @@ post '/create-checkout-session' do
     success_url: YOUR_DOMAIN + '/success?session_id={CHECKOUT_SESSION_ID}',
     cancel_url: YOUR_DOMAIN + '/cancel',
     automatic_tax: {enabled: true},
+    metadata: {one: 1, two: "duo"},
   })
   redirect session.url, 303
 end
@@ -45,7 +46,7 @@ get '/success' do
   )
   puts "Session:"
   puts session.inspect
-  
+
   puts "Line Items:"
   puts session.line_items.data.inspect
 
